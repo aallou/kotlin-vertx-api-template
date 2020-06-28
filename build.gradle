@@ -22,7 +22,7 @@ application {
   mainClassName = 'io.vertx.core.Launcher'
 }
 
-def mainVerticleName = 'com.scaffold.greeting.MainVerticle'
+def mainVerticleName = 'com.scaffold.greeting.Main'
 def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
 
