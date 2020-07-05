@@ -21,6 +21,14 @@ To run your application:
 ./gradlew clean run
 ```
 
+To run with java command :
+```
+java -jar ./build/libs/greeting-<version>-fat.jar -conf src/main/resources/conf/application.json
+```
+
+== Configuration / properties
+To add some properties for external configuration, please use the json file `src/main/resources/conf/application.json`
+
 == Help
 
 * https://vertx.io/docs/[Vert.x Documentation]

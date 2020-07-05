@@ -1,19 +1,16 @@
 package com.scaffold.greeting
 
-import com.scaffold.greeting.router.router
+import com.scaffold.greeting.router.HttpRouter
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Promise
-import io.vertx.core.json.JsonObject
-import io.vertx.ext.web.Router
-import io.vertx.ext.web.RoutingContext
 
-class MainVerticle : AbstractVerticle() {
+class MainVerticle(val httpRouter : HttpRouter) : AbstractVerticle() {
 
   override fun start(startPromise: Promise<Void>) {
-    val port = 8888
+    val port = config().getInteger("http.port", 8080)
     vertx
       .createHttpServer()
-      .requestHandler(router(vertx))
+      .requestHandler(httpRouter.router(vertx))
       .listen(port) { http ->
         if (http.succeeded()) {
           startPromise.complete()
