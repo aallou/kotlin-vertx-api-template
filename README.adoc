@@ -36,7 +36,7 @@ docker build . -t kotlin-vertx-api-template:local
 
 Then, you can run the application as a container:
 ```
-docker run --rm -p8888:8888 greeting-vertx:local
+docker run --rm -p8888:8888 kotlin-vertx-api-template:local
 ```
 
 To test the api, you can use `curl` :
