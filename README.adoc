@@ -29,6 +29,28 @@ java -jar ./build/libs/greeting-<version>-fat.jar -conf src/main/resources/conf/
 == Configuration / properties
 To add some properties for external configuration, please use the json file `src/main/resources/conf/application.json`
 
+== Build a local docker image
+```
+docker build . -t kotlin-vertx-api-template:local
+```
+
+Then, you can run the application as a container:
+```
+docker run --rm -p8888:8888 greeting-vertx:local
+```
+
+To test the api, you can use `curl` :
+```
+curl --location --request GET 'http://localhost:8888/greeting?name=world'
+
+Response :
+HTTP/1.1 200 OK
+content-type: application/json
+{
+    "message": "Hello world"
+}
+```
+
 == Help
 
 * https://vertx.io/docs/[Vert.x Documentation]
